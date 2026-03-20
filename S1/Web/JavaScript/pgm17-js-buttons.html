@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>3 Button JavaScript Example</title>
+<style>
+body {
+	text-align: center;
+	padding-top: 50px;
+	background-color: white;
+	transition: all 0.5s ease;
+}
+button {
+	margin: 10px;
+	padding: 10px 20px;
+	font-size: 16px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+<h2>Simple JavaScript Example</h2>
+<button onclick="changeColor()">Change Color</button>
+<button onclick="changeBackgroundImage()">Change Background Image</button>
+<button onclick="resumeNormal()">Resume to Normal</button>
+<script>
+function changeColor() {
+document.body.style.backgroundColor = "yellow";
+}
+function changeBackgroundImage() {
+document.body.style.backgroundImage = "url('https://static.vecteezy.com/system/resources/previews/049/855/805/non_2x/nature-background-high-resolution-wallpaper-for-a-serene-and-stunning-view-free-photo.jpg')";
+document.body.style.backgroundSize = "cover";
+}
+function resumeNormal() {
+document.body.style.backgroundColor = "white";
+document.body.style.backgroundImage = "none";
+}
+</script>
+</body>
+</html>

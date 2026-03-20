@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Membership Form</title>
+</head>
+<body>
+  <h2>Library Membership Form</h2>
+
+  <form>
+    Name:
+    <input type="text" name="name">
+    <br><br>
+
+    Email:
+    <input type="email" name="email">
+    <br><br>
+
+    Phone Number:
+    <input type="tel" name="phone" pattern="[0-9]{10}" placeholder="Must contain 10 digits">
+    <br><br>
+
+    Address:
+    <br>
+    <textarea rows="4" cols="30" placeholder="Write your address here..."></textarea>
+    <br><br>
+
+    Date of Birth:
+    <input type="date" name="dob">
+    <br><br>
+
+    Gender:
+    <br>
+    <input type="radio" name="gender" value="male"> Male<br>
+    <input type="radio" name="gender" value="female"> Female<br>
+    <input type="radio" name="gender" value="other"> Other
+    <br><br>
+
+    Interested Sections:
+    <br>
+    <input type="checkbox" name="interested" value="fiction"> Fiction<br>
+    <input type="checkbox" name="interested" value="non-fiction"> Non-Fiction<br>
+    <input type="checkbox" name="interested" value="science"> Science<br>
+    <input type="checkbox" name="interested" value="history"> History
+    <br><br>
+
+    Membership Type:
+    <br>
+    <select>
+      <option selected disabled>--Select--</option>
+      <option>Student</option>
+      <option>Teacher</option>
+    </select>
+    <br><br>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+  </form>
+</body>
+</html>

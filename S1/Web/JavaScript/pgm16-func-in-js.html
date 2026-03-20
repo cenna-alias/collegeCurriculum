@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript Built-in Functions Example</title>
+<style>
+h4 {
+	margin: 0;
+	padding: 0;
+	text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<h4>EXAMPLES OF BUILT-IN FUNCTIONS IN JAVASCRIPT</h4>
+<script>
+// ===== String Functions =====
+var text = "JavaScript Programming";
+document.write("<b>String Functions:</b><br>");
+document.write("Original Text: " + text + "<br>");
+document.write("Length: " + text.length + "<br>");
+document.write("Uppercase: " + text.toUpperCase() + "<br>");
+document.write("Lowercase: " + text.toLowerCase() + "<br>");
+document.write("Substring(0,10): " + text.substring(0,10) + "<br>");
+document.write("Index of 'Script': " + text.indexOf('Script') + "<br>");
+document.write("Last Index of 'a': " + text.lastIndexOf('a') + "<br>");
+document.write("Replace 'Programming' with 'Language': " + text.replace('Programming','Language') + "<br>");
+document.write("Split by space: " + text.split(' ') + "<br>");
+document.write("Includes 'Java': " + text.includes('Java') + "<br>");
+// ===== Math Functions =====
+var num = 5.7;
+document.write("<b>Math Functions:</b><br>");
+document.write("Number: " + num + "<br>");
+document.write("Round: " + Math.round(num) + "<br>");
+document.write("Ceil: " + Math.ceil(num) + "<br>");
+document.write("Floor: " + Math.floor(num) + "<br>");
+document.write("Power (2^3): " + Math.pow(2,3) + "<br>");
+document.write("Square Root (81): " + Math.sqrt(81) + "<br>");
+document.write("Absolute Value (-9): " + Math.abs(-9) + "<br>");
+document.write("Random Number (0-1): " + Math.random() + "<br>");
+document.write("Maximum of (4, 8, 2): " + Math.max(4,8,2) + "<br>");
+document.write("Minimum of (4, 8, 2): " + Math.min(4,8,2) + "<br>");
+// ===== Date Functions =====
+var today = new Date();
+document.write("<b>Date Functions:</b><br>");
+document.write("Full Date: " + today + "<br>");
+document.write("Date: " + today.getDate() + "<br>");
+document.write("Month (1-12): " + (today.getMonth() + 1) + "<br>");
+document.write("Year: " + today.getFullYear() + "<br>");
+document.write("Hours: " + today.getHours() + "<br>");
+document.write("Minutes: " + today.getMinutes() + "<br>");
+document.write("Seconds: " + today.getSeconds() + "<br>");
+document.write("Day of the Week (0=Sun): " + today.getDay() + "<br>");
+document.write("Readable Date: " + today.toDateString() + "<br>");
+document.write("Local Time: " + today.toLocaleTimeString() + "<br>");
+</script>
+</body>
+</html>

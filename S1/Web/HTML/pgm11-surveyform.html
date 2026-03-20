@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Survey Form</title>
+</head>
+<body>
+  <h2>Online Activity Survey</h2>
+
+  <form>
+    Name:
+    <input type="text" name="name">
+    <br><br>
+
+    Age:
+    <input type="number" name="age">
+    <br><br>
+
+    Gender:
+    <br>
+    <input type="radio" name="gender" value="male"> Male<br>
+    <input type="radio" name="gender" value="female"> Female<br>
+    <input type="radio" name="gender" value="other"> Other
+    <br><br>
+
+    Favourite Online Activity:
+    <br>
+    <select>
+      <option selected disabled>--Select--</option>
+      <option>News</option>
+      <option>Shopping</option>
+      <option>Social Media</option>
+    </select>
+    <br><br>
+
+    Devices Used:
+    <br>
+    <input type="checkbox" name="devices" value="phone"> Phone<br>
+    <input type="checkbox" name="devices" value="tablet"> Tablet<br>
+    <input type="checkbox" name="devices" value="laptop"> Laptop
+    <br><br>
+
+    Comments if any:
+    <br>
+    <textarea rows="4" cols="30" placeholder="Write your comments here..."></textarea>
+    <br><br>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+  </form>
+</body>
+</html>

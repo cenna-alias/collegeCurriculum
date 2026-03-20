@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Different Ways to Display Output in JavaScript</title>
+</head>
+<body style="background-color: lightgray; font-family: Arial;">
+<h2>Different Ways to Display Output in JavaScript</h2>
+<p><b>1. Using document.write()</b></p>
+  <script>
+    document.write("This text is written directly to the web page.<br><br>");
+  </script>
+<p><b>2. Using alert()</b></p>
+  <script>
+    alert("This is an alert box message!");
+  </script>
+<p><b>3. Using console.log()</b></p>
+  <p>Check the browser console to see the output.</p>
+  <script>
+    console.log("This message is displayed in the browser console.");
+  </script>
+<p id="output"></p>
+<script>
+    // 4. Using innerHTML
+    document.getElementById("output").innerHTML = "4. This text is added using innerHTML.";
+  </script>
+</body>
+</html>
