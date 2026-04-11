@@ -1,7 +1,7 @@
-public class FibonacciGenerator implements Runnable {
+public class fibonacciGenerator implements Runnable {
     private int n;
 
-    public FibonacciGenerator(int n) {
+    public fibonacciGenerator(int n) {
         this.n = n;
     }
 

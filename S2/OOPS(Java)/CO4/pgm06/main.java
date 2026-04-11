@@ -8,10 +8,10 @@ public class Main {
         System.out.print("Enter the range (start end): ");
         int start = scanner.nextInt();
         int end = scanner.nextInt();
-        EvenNumberPrinter evenNumberPrinter = new EvenNumberPrinter(start, end);
+        evenNumberPrinter evenNumberPrinter = new evenNumberPrinter(start, end);
         Thread evenThread = new Thread(evenNumberPrinter);
         evenThread.start();
-        FibonacciGenerator fibonacciGenerator = new FibonacciGenerator(n);
+        fibonacciGenerator fibonacciGenerator = new fibonacciGenerator(n);
         Thread fibonacciThread = new Thread(fibonacciGenerator);
         fibonacciThread.start();
     }

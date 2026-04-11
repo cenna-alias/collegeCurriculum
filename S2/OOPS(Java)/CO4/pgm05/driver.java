@@ -12,5 +12,6 @@ public class Driver {
 
         Prime obj2 = new Prime(number);
         obj2.start();
+        sc.close();
     }
 }

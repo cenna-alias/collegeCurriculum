@@ -15,11 +15,11 @@ public class authentication {
 			}
 			
 			else {
-				throw new credentialexception("Invalid Credentials");
+				throw new credential_exception("Invalid Credentials");
 			}
 		}
 		
-		catch(credentialexception e) {
+		catch(credential_exception e) {
 			System.out.println(e.getMessage());
 		}
 	}

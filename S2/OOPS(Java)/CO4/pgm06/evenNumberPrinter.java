@@ -1,8 +1,8 @@
-public class EvenNumberPrinter implements Runnable {
+public class evenNumberPrinter implements Runnable {
     private int start;
     private int end;
 
-    public EvenNumberPrinter(int start, int end) {
+    public evenNumberPrinter(int start, int end) {
         this.start = start;
         this.end = end;
     }
