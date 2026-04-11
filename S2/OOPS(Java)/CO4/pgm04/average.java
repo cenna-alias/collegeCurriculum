@@ -25,6 +25,7 @@ public class average {
 			System.out.println(e.getMessage());
 		}
 	}
+	sc.close();
 	double avg = sum/N;
 	System.out.println("Average of positive numbers = " +avg);
 	}

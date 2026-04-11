@@ -14,5 +14,6 @@ public class Main {
         fibonacciGenerator fibonacciGenerator = new fibonacciGenerator(n);
         Thread fibonacciThread = new Thread(fibonacciGenerator);
         fibonacciThread.start();
+        scanner.close();
     }
 }

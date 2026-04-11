@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class authentication {
+public class Authentication {
 	public static void main(String args[]) {
 		String username = "MBITS";
 		String password = "MBITS";
@@ -21,6 +21,9 @@ public class authentication {
 		
 		catch(credential_exception e) {
 			System.out.println(e.getMessage());
+		}
+		finally {
+			sc.close();
 		}
 	}
 }
