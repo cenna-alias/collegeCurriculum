@@ -16,7 +16,7 @@ do
 	case $choice in
 		1)
 			read -p "Enter destination filename:" dest
-			cp "$filename" "dest"
+			cp "$filename" "$dest"
 			echo "File copied successfully"
 			;;
 		2)
@@ -35,7 +35,7 @@ do
 			echo "Exiting program"
 			exit 0
 			;;
-		6)
+		*)
 			echo "Invalid choice"
 			;;
 	esac
