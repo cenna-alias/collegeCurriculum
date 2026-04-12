@@ -14,7 +14,7 @@ if [ -e "$filename" ]; then
 	if [ -w "$filename" ]; then
 		echo "File is writable."
 	else
-		echo "File is not readable."
+		echo "File is not writable."
 	fi
 
 	if [ -r "$filename" ] && [ -w "$filename" ]; then

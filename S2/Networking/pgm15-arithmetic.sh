@@ -6,10 +6,10 @@ calculate() {
 	operator=$op
 	case $operator in
 		+) result=$(($first_num + $second_num)) ;;
-		-) result=$(($first_num - second_num)) ;;
-		\*) result=$(($first_num * second_num)) ;;
-		/) result=$(($first_num / second_num)) ;;
-		%) result=$(($first_num % second_num)) ;;
+		-) result=$(($first_num - $second_num)) ;;
+		\*) result=$(($first_num * $second_num)) ;;
+		/) result=$(($first_num / $second_num)) ;;
+		%) result=$(($first_num % $second_num)) ;;
 		*) echo "Invalid operation"; exit 1;;
 	esac
 	echo "Result: $result"
