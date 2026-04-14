@@ -50,7 +50,7 @@ class Consumer extends Thread {
         }
     }
 }
-public class ProducerConsumerITC {
+public class ProducerConsumerIPC {
     public static void main(String[] args) {
         Buffer buffer = new Buffer();
         Producer p = new Producer(buffer);
