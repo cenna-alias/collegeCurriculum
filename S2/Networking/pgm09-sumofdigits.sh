@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "Enter the number:"
 read num
 sum=0
