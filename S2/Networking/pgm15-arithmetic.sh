@@ -3,7 +3,6 @@ calculate() {
 	first_num=$num1
 	operator=$op
 	second_num=$num2
-	operator=$op
 	case $operator in
 		+) result=$(($first_num + $second_num)) ;;
 		-) result=$(($first_num - $second_num)) ;;
