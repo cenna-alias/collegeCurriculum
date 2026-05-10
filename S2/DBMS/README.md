@@ -1,5 +1,10 @@
 # DBMS Lab Record
 
+## 📚 Reference
+- [SQL Commands Reference](https://www.mygreatlearning.com/blog/sql-commands/)
+
+---
+
 ## Experiment 1: DDL Statements
 
 ### Aim:
