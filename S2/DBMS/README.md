@@ -687,3 +687,84 @@ roles:["readWrite"]
 
 show users
 ```
+
+---
+
+## Experiment 25: MongoDB Replication, Indexing, and Clustering
+
+### Aim:
+
+Perform replication, indexing, and clustering
+
+### Program:
+
+```javascript
+db.createCollection("students")
+
+db.students.insertMany([
+{ _id:1, name:"Kiran", dept:"CSE", age:21, city:"Kochi" },
+{ _id:2, name:"Anitha", dept:"ECE", age:22, city:"TVM" }
+])
+
+db.students.createIndex({ name:1 })
+db.students.getIndexes()
+
+mongod --port 27017 --dbpath /data/db1 --replSet rs0
+mongod --port 27018 --dbpath /data/db2 --replSet rs0
+
+rs.initiate()
+rs.add("localhost:27018")
+```
+
+---
+
+## Experiment 26: PHP with MongoDB
+
+### Aim:
+
+Insert and retrieve student records using PHP
+
+### Program:
+
+```php
+<?php
+$manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+
+if(isset($_POST['submit'])){
+    $bulk = new MongoDB\Driver\BulkWrite;
+
+    $doc = [
+        "name" => $_POST['name'],
+        "roll" => $_POST['roll'],
+        "dept" => $_POST['dept']
+    ];
+
+    $bulk->insert($doc);
+    $manager->executeBulkWrite("college.students", $bulk);
+
+    echo "Record Inserted Successfully<br>";
+}
+
+$query = new MongoDB\Driver\Query([]);
+$rows = $manager->executeQuery("college.students", $query);
+?>
+
+<html>
+<body>
+
+<form method="post">
+Name: <input type="text" name="name"><br>
+Roll: <input type="text" name="roll"><br>
+Dept: <input type="text" name="dept"><br>
+<input type="submit" name="submit">
+</form>
+
+<?php
+foreach ($rows as $row) {
+    echo $row->name . " - " . $row->roll . " - " . $row->dept . "<br>";
+}
+?>
+
+</body>
+</html>
+```
