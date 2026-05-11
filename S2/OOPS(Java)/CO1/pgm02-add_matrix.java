@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class add_matrix {
+public class AddMatrix {
 
     public static void main(String args[]) {
 
@@ -15,7 +15,7 @@ public class add_matrix {
 
         int mat1[][] = new int[row][col];
         int mat2[][] = new int[row][col];
-        int res[][]  = new int[row][col];
+        int res[][] = new int[row][col];
 
         System.out.println("Enter the elements of matrix 1");
         for (i = 0; i < row; i++) {
@@ -46,5 +46,7 @@ public class add_matrix {
             }
             System.out.println();
         }
+
+        in.close();
     }
 }
