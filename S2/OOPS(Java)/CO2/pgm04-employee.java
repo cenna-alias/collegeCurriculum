@@ -1,22 +1,20 @@
 import java.util.Scanner;
 
-class Employee {
+public class Employee
+{
+    String eNo;
+    String eName;
+    int    eSalary;
 
-    public String eNo;
-    public String eName;
-    public int eSalary;
-
-    public Employee(String eNo, String eName, int eSalary) {
+    public Employee(String eNo, String eName, int eSalary)
+    {
         this.eNo     = eNo;
         this.eName   = eName;
         this.eSalary = eSalary;
     }
-}
 
-public class mainEmployee {
-
-    public static void main(String[] args) {
-
+    public static void main(String[] args)
+    {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Enter count of employee list:");
@@ -25,8 +23,8 @@ public class mainEmployee {
 
         Employee[] employees = new Employee[count];
 
-        for (int i = 0; i < count; i++) {
-
+        for (int i = 0; i < count; i++)
+        {
             System.out.print("Enter number of employee: ");
             String eNo = scan.nextLine();
 
@@ -35,8 +33,8 @@ public class mainEmployee {
 
             System.out.print("Enter salary of employee: ");
             int eSalary = Integer.parseInt(scan.nextLine());
-            System.out.println();
 
+            System.out.println();
             employees[i] = new Employee(eNo, eName, eSalary);
         }
 
@@ -44,12 +42,25 @@ public class mainEmployee {
         String search = scan.nextLine();
         System.out.println();
 
-        for (int i = 0; i < count; i++) {
-            if (employees[i].eNo.equals(search)) {
+        boolean found = false;
+
+        for (int i = 0; i < count; i++)
+        {
+            if (employees[i].eNo.equals(search))
+            {
                 System.out.println("Employee number : " + employees[i].eNo);
                 System.out.println("Employee name   : " + employees[i].eName);
                 System.out.println("Employee salary : " + employees[i].eSalary);
+                found = true;
+                break;
             }
         }
+
+        if (!found)
+        {
+            System.out.println("Employee not found!");
+        }
+
+        scan.close();
     }
 }

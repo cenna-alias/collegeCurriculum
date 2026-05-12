@@ -1,13 +1,14 @@
 import java.util.Scanner;
 
-class Person {
-
+class Person
+{
     String name;
     String gender;
     String address;
-    int age;
+    int    age;
 
-    Person(String name, String gender, String address, int age) {
+    Person(String name, String gender, String address, int age)
+    {
         this.name    = name;
         this.gender  = gender;
         this.address = address;
@@ -15,15 +16,16 @@ class Person {
     }
 }
 
-class Employee extends Person {
-
-    int empId;
+class Employee extends Person
+{
+    int    empId;
     String companyName;
     String qualification;
-    long salary;
+    long   salary;
 
     Employee(String name, String gender, String address, int age,
-             int empId, String companyName, String qualification, long salary) {
+             int empId, String companyName, String qualification, long salary)
+    {
         super(name, gender, address, age);
         this.empId         = empId;
         this.companyName   = companyName;
@@ -32,22 +34,24 @@ class Employee extends Person {
     }
 }
 
-public class teacher2 extends Employee {
-
+public class Teacher extends Employee
+{
     String subject;
     String department;
     String teacherId;
 
-    teacher2(String name, String gender, String address, int age,
-             int empId, String companyName, String qualification, long salary,
-             String subject, String department, String teacherId) {
+    Teacher(String name, String gender, String address, int age,
+            int empId, String companyName, String qualification, long salary,
+            String subject, String department, String teacherId)
+    {
         super(name, gender, address, age, empId, companyName, qualification, salary);
         this.subject    = subject;
         this.department = department;
         this.teacherId  = teacherId;
     }
 
-    void display() {
+    void display()
+    {
         System.out.println("Name          : " + name);
         System.out.println("Gender        : " + gender);
         System.out.println("Address       : " + address);
@@ -61,21 +65,20 @@ public class teacher2 extends Employee {
         System.out.println("Teacher ID    : " + teacherId);
     }
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args)
+    {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter the no. of teachers:");
         int num = sc.nextInt();
 
-        teacher2[] arr = new teacher2[num];
+        Teacher[] arr = new Teacher[num];
 
         System.out.println("\nEnter the details of teachers:");
 
-        for (int i = 0; i < num; i++) {
-
-            int x = i + 1;
-            System.out.println("\n" + x + ").");
+        for (int i = 0; i < num; i++)
+        {
+            System.out.println("\n" + (i + 1) + ").");
 
             System.out.println("Name:");
             String name = sc.next();
@@ -110,16 +113,16 @@ public class teacher2 extends Employee {
             System.out.println("Teacher ID:");
             String teacherId = sc.next();
 
-            arr[i] = new teacher2(name, gender, address, age,
-                                  empId, companyName, qualification, salary,
-                                  subject, department, teacherId);
+            arr[i] = new Teacher(name, gender, address, age,
+                                 empId, companyName, qualification, salary,
+                                 subject, department, teacherId);
         }
 
         System.out.println("\n*** Information of all the Teachers ***");
 
-        for (int i = 0; i < num; i++) {
-            int j = i + 1;
-            System.out.println("\n" + j + ").");
+        for (int i = 0; i < num; i++)
+        {
+            System.out.println("\n" + (i + 1) + ").");
             arr[i].display();
         }
 

@@ -18,17 +18,20 @@ public class Product
 
     static void findLowest(double price1, double price2, double price3)
     {
-        if(price1 <= price2 && price1 <= price3)
+        if (price1 <= price2 && price1 <= price3)
         {
-            System.out.println("\n Product 1 is of the lowest price!");
+            System.out.println();
+            System.out.println("Product 1 is of the lowest price!");
         }
-        else if(price2 <= price1 && price2 <= price3)
+        else if (price2 <= price1 && price2 <= price3)
         {
-            System.out.println("\n Product 2 is of the lowest price!");
+            System.out.println();
+            System.out.println("Product 2 is of the lowest price!");
         }
         else
         {
-            System.out.println("\n Product 3 is of the lowest price!");
+            System.out.println();
+            System.out.println("Product 3 is of the lowest price!");
         }
     }
 
@@ -41,6 +44,7 @@ public class Product
         System.out.println("Product Information:");
         System.out.println("Pcode\t\tPname\t\tPrice");
         System.out.println("--------------------------------------------------");
+
         obj1.display();
         obj2.display();
         obj3.display();
