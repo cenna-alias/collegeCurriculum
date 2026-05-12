@@ -8,6 +8,7 @@ interface Operations {
 }
 
 public class Operands implements Operations {
+
     float x, y;
 
     public Operands(float a, float b) {
@@ -16,7 +17,7 @@ public class Operands implements Operations {
     }
 
     public void add() {
-        System.out.println("\nSUM = " + (x + y));
+        System.out.println("\nSUM        = " + (x + y));
     }
 
     public void sub() {
@@ -24,10 +25,10 @@ public class Operands implements Operations {
     }
 
     public void div() {
-        System.out.println("\nQUOTIENT = " + (x / y));
+        System.out.println("\nQUOTIENT   = " + (x / y));
     }
 
     public void mul() {
-        System.out.println("\nPRODUCT = " + (x * y));
+        System.out.println("\nPRODUCT    = " + (x * y));
     }
 }

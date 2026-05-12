@@ -2,16 +2,16 @@ import java.util.Scanner;
 import ArithmeticPackage.Operands;
 
 public class MathOperations {
+
     public static void main(String[] args) {
+
         Scanner s = new Scanner(System.in);
 
-        float a, b;
-
-        System.out.println("____ARITHMETIC OPERATIONS____");
-
+        System.out.println("____ ARITHMETIC OPERATIONS ____");
         System.out.print("Enter any two numbers to be operated with: ");
-        a = s.nextFloat();
-        b = s.nextFloat();
+
+        float a = s.nextFloat();
+        float b = s.nextFloat();
 
         Operands op = new Operands(a, b);
 
