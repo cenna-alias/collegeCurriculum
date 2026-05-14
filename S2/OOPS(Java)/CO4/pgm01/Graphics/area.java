@@ -15,37 +15,29 @@ public class Area implements Figures {
 
     public void rectangle() {
         System.out.print("Enter the length  : ");
-        int l = s.nextInt();
+        double l = s.nextDouble();
         System.out.print("Enter the breadth : ");
-        int b = s.nextInt();
+        double b = s.nextDouble();
         System.out.println("Area of the rectangle : " + (l * b));
     }
 
     public void triangle() {
         System.out.print("Enter the base   : ");
-        int base = s.nextInt();
+        double base = s.nextDouble();
         System.out.print("Enter the height : ");
-        int h = s.nextInt();
+        double h = s.nextDouble();
         System.out.println("Area of the triangle : " + (0.5 * base * h));
     }
 
     public void square() {
         System.out.print("Enter the side : ");
-        int side = s.nextInt();
+        double side = s.nextDouble();
         System.out.println("Area of the square : " + (side * side));
     }
 
     public void circle() {
         System.out.print("Enter the radius : ");
-        float r = s.nextFloat();
-        System.out.println("Area of the circle : " + (Math.PI * r * r));
-    }
-
-    public static void main(String[] args) {
-        Area obj = new Area();
-        obj.rectangle();
-        obj.triangle();
-        obj.square();
-        obj.circle();
+        double r = s.nextDouble();
+        System.out.println("Area of the circle : " + (3.14 * r * r));
     }
 }

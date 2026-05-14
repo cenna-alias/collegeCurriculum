@@ -1,6 +1,6 @@
 package Graphics;
 
-public class test_package {
+public class TestPackage {
 
     public static void main(String[] args) {
 
