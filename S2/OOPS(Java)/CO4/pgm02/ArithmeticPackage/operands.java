@@ -3,8 +3,8 @@ package ArithmeticPackage;
 interface Operations {
     void add();
     void sub();
-    void div();
     void mul();
+    void div();
 }
 
 public class Operands implements Operations {
