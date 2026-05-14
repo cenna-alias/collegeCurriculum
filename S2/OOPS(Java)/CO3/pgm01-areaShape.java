@@ -2,33 +2,29 @@ import java.util.Scanner;
 
 public class Shapes
 {
-    int    a;
-    int    area;
-    float  x;
-    double y;
 
     void area(int l, int b)
     {
-        a = l * b;
-        System.out.println("Area: " + a);
+        int recArea = l * b;
+        System.out.println("Area: " + recArea);
     }
 
     void area(int s)
     {
-        area = s * s;
-        System.out.println("Area: " + area);
+        int squArea = s * s;
+        System.out.println("Area: " + squArea);
     }
 
     void area(float b, float h)
     {
-        x = (b * h) / 2;
-        System.out.println("Area: " + x);
+        float triArea = (b * h) / 2;
+        System.out.println("Area: " + triArea);
     }
 
     void area(double r)
     {
-        y = 3.14 * r * r;
-        System.out.printf("Area: %.2f%n", y);
+        double cirArea = 3.14 * r * r;
+        System.out.printf("Area: %.2f%n", cirArea);
     }
 
     public static void main(String[] args)
