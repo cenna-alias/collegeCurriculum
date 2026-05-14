@@ -71,6 +71,7 @@ public class Teacher extends Employee
 
         System.out.println("Enter the no. of teachers:");
         int num = sc.nextInt();
+        sc.nextLine();
 
         Teacher[] arr = new Teacher[num];
 
@@ -81,37 +82,40 @@ public class Teacher extends Employee
             System.out.println("\n" + (i + 1) + ").");
 
             System.out.println("Name:");
-            String name = sc.next();
+            String name = sc.nextLine();
 
             System.out.println("Gender:");
-            String gender = sc.next();
+            String gender = sc.nextLine();
 
             System.out.println("Address:");
-            String address = sc.next();
+            String address = sc.nextLine();
 
             System.out.println("Age:");
             int age = sc.nextInt();
+            sc.nextLine();
 
             System.out.println("Employee ID:");
             int empId = sc.nextInt();
+            sc.nextLine();
 
             System.out.println("Company Name:");
-            String companyName = sc.next();
+            String companyName = sc.nextLine();
 
             System.out.println("Qualification:");
-            String qualification = sc.next();
+            String qualification = sc.nextLine();
 
             System.out.println("Salary:");
             long salary = sc.nextLong();
+            sc.nextLine();
 
             System.out.println("Subject:");
-            String subject = sc.next();
+            String subject = sc.nextLine();
 
             System.out.println("Department:");
-            String department = sc.next();
+            String department = sc.nextLine();
 
             System.out.println("Teacher ID:");
-            String teacherId = sc.next();
+            String teacherId = sc.nextLine();
 
             arr[i] = new Teacher(name, gender, address, age,
                                  empId, companyName, qualification, salary,

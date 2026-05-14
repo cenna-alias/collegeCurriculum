@@ -52,10 +52,10 @@ public class Teacher extends Employee
         {
             System.out.println("Enter employee id:");
             int empId = sc.nextInt();
+            sc.nextLine();
 
             System.out.println("Enter employee name:");
-            String name = sc.next();
-            sc.nextLine();
+            String name = sc.nextLine();
 
             System.out.println("Enter salary:");
             double salary = sc.nextDouble();
