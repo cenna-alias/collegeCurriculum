@@ -38,6 +38,6 @@ public class Area implements Figures {
     public void circle() {
         System.out.print("Enter the radius : ");
         double r = s.nextDouble();
-        System.out.println("Area of the circle : " + (3.14 * r * r));
+        System.out.printf("Area of the circle : %.2f%n", (3.14 * r * r));
     }
 }
