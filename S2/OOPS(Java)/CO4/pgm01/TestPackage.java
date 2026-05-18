@@ -1,4 +1,4 @@
-package Graphics;
+import Graphics.Area;
 
 public class TestPackage {
 
