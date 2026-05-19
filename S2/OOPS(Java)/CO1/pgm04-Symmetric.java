@@ -6,10 +6,10 @@ public class Symmetric
     {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter the Number of rows of the Matrix:");
+        System.out.println("Enter the number of rows of the matrix:");
         int row = sc.nextInt();
 
-        System.out.println("Enter the Number of Columns of the Matrix:");
+        System.out.println("Enter the number of columns of the matrix:");
         int col = sc.nextInt();
 
         int[][] matrix = new int[row][col];
