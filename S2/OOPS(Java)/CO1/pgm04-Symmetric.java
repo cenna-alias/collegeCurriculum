@@ -12,7 +12,7 @@ public class Symmetric
         System.out.println("Enter the number of columns of the matrix:");
         int col = sc.nextInt();
 
-        int[][] matrix = new int[row][col];
+        int matrix[][] = new int[row][col];
         int i, j;
         boolean state = true;
 
