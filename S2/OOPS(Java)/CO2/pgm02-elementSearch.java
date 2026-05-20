@@ -10,7 +10,7 @@ public class ElementSearch
         System.out.println("Enter the number of elements to be inserted:");
         count = sc.nextInt();
 
-        int[] inputArray = new int[count];
+        int inputArray[] = new int[count];
 
         System.out.println("Start to enter those " + count + " elements:");
         for (i = 0; i < count; i++)
