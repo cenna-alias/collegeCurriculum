@@ -18,8 +18,3 @@ The `S1` directory consists of lab programs, assignments, and practice codes rel
 In the second semester, I studied Database Management Systems **(DBMS)**, **Java programming**, and networking concepts using **shell scripting** concepts.
 
 The `S2` directory contains lab programs, assignments, and additional practice programs related to these topics.
-
----
-
-## Note
-This repository is maintained for academic reference and learning purposes.
