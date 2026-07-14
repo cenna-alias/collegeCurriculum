@@ -1,152 +1,112 @@
 """
-Real-Life Application: STUDENT EXAM RESULT & ATTENDANCE ANALYZER
-====================================================================
-This program demonstrates:
-  1. All Conditional Statements  (if, if-else, if-elif-else, nested if)
-  2. All Looping Statements      (for, while, nested loop,
-                                   break, continue, pass)
+Real-Life Application: SIMPLE STUDENT MARKS PROGRAM (Beginner Level)
+=========================================================================
+Covers: all conditional statements and all looping statements.
 """
 
 # ------------------------------------------------------------------
-# Sample real-life data: marks of students in 5 subjects each
+# Simple if
 # ------------------------------------------------------------------
-students = {
-    "Aditi": [88, 92, 79, 85, 90],
-    "Rahul": [45, 39, 55, 60, 42],
-    "Meera": [70, 65, 72, 68, 75],
-    "Sooraj": [30, 25, 40, 35, 28],
-    "Kiran": [95, 98, 92, 97, 99],
-}
+marks = 85
 
-attendance = {"Aditi": 92, "Rahul": 65, "Meera": 78, "Sooraj": 50, "Kiran": 96}
+if marks > 80:
+    print("Good marks!")
 
-
-# ------------------------------------------------------------------
-# SIMPLE IF STATEMENT
-# ------------------------------------------------------------------
-print("----- ATTENDANCE WARNING CHECK (simple if) -----")
-for name in attendance:                 # for loop
-    if attendance[name] < 75:            # simple if
-        print(f"Warning: {name} has low attendance ({attendance[name]}%)")
 print()
 
-
 # ------------------------------------------------------------------
-# IF-ELSE STATEMENT
+# if-else
 # ------------------------------------------------------------------
-print("----- PASS / FAIL STATUS (if-else) -----")
-for name, marks in students.items():
-    average = sum(marks) / len(marks)
-    if average >= 40:
-        print(f"{name}: PASS (avg={average:.2f})")
-    else:
-        print(f"{name}: FAIL (avg={average:.2f})")
-print()
+marks2 = 30
 
-
-# ------------------------------------------------------------------
-# IF-ELIF-ELSE STATEMENT (Grading system)
-# ------------------------------------------------------------------
-print("----- GRADE ALLOCATION (if-elif-else) -----")
-for name, marks in students.items():
-    average = sum(marks) / len(marks)
-
-    if average >= 90:
-        grade = "A+"
-    elif average >= 75:
-        grade = "A"
-    elif average >= 60:
-        grade = "B"
-    elif average >= 40:
-        grade = "C"
-    else:
-        grade = "F"
-
-    print(f"{name}: average={average:.2f} -> Grade {grade}")
-print()
-
-
-# ------------------------------------------------------------------
-# NESTED IF STATEMENT (Scholarship eligibility)
-# ------------------------------------------------------------------
-print("----- SCHOLARSHIP ELIGIBILITY (nested if) -----")
-for name, marks in students.items():
-    average = sum(marks) / len(marks)
-    att = attendance[name]
-
-    if average >= 75:                    # outer if
-        if att >= 90:                    # nested if
-            print(f"{name}: Eligible for FULL scholarship")
-        else:
-            if att >= 75:                # another nested if
-                print(f"{name}: Eligible for PARTIAL scholarship")
-            else:
-                print(f"{name}: Good marks but attendance too low")
-    else:
-        print(f"{name}: Not eligible (average below 75)")
-print()
-
-
-# ------------------------------------------------------------------
-# WHILE LOOP with BREAK and CONTINUE
-# ------------------------------------------------------------------
-print("----- SUBJECT-WISE CHECK using WHILE loop -----")
-name_list = list(students.keys())
-i = 0
-while i < len(name_list):
-    name = name_list[i]
-    marks = students[name]
-
-    j = 0
-    subject_failed = False
-    while j < len(marks):
-        if marks[j] < 33:               # failing mark in a subject
-            print(f"{name} failed in subject {j+1} (marks={marks[j]})")
-            subject_failed = True
-            j += 1
-            continue                     # continue checking other subjects
-        if marks[j] == 100:
-            print(f"{name} scored a perfect 100! Stopping subject check.")
-            break                        # break out of inner while loop
-        j += 1
-
-    if not subject_failed:
-        pass                             # placeholder: nothing special to do
-    i += 1
-print()
-
-
-# ------------------------------------------------------------------
-# NESTED FOR LOOP (Marks matrix / mark-sheet table)
-# ------------------------------------------------------------------
-print("----- MARK SHEET TABLE (nested for loop) -----")
-subjects = ["Eng", "Math", "Sci", "Soc", "Comp"]
-
-header = "Name".ljust(10)
-for sub in subjects:                     # outer loop -> columns header
-    header += sub.ljust(6)
-print(header)
-
-for name, marks in students.items():     # outer loop -> each student (row)
-    row = name.ljust(10)
-    for m in marks:                      # inner loop -> each subject mark
-        row += str(m).ljust(6)
-    print(row)
-print()
-
-
-# ------------------------------------------------------------------
-# FOR LOOP with ELSE (rare but valid Python construct)
-# ------------------------------------------------------------------
-print("----- SEARCH FOR TOPPER (for-else) -----")
-topper = None
-for name, marks in students.items():
-    if sum(marks) / len(marks) >= 95:
-        topper = name
-        break
+if marks2 >= 40:
+    print("Result: Pass")
 else:
-    # runs only if the loop completed WITHOUT a break
-    print("No student found with average 95 or above.")
+    print("Result: Fail")
 
-if topper:
-    print(f"Topper found: {topper}")
+print()
+
+# ------------------------------------------------------------------
+# if-elif-else
+# ------------------------------------------------------------------
+marks3 = 75
+
+if marks3 >= 90:
+    print("Grade: A")
+elif marks3 >= 75:
+    print("Grade: B")
+elif marks3 >= 60:
+    print("Grade: C")
+else:
+    print("Grade: D")
+
+print()
+
+# ------------------------------------------------------------------
+# Nested if
+# ------------------------------------------------------------------
+age = 20
+has_id = True
+
+if age >= 18:
+    if has_id:
+        print("Entry allowed")
+    else:
+        print("Entry denied, ID required")
+else:
+    print("Entry denied, underage")
+
+print()
+
+# ------------------------------------------------------------------
+# for loop
+# ------------------------------------------------------------------
+print("Students in class:")
+students = ["Aditi", "Rahul", "Meera"]
+for name in students:
+    print(name)
+
+print()
+
+# ------------------------------------------------------------------
+# while loop
+# ------------------------------------------------------------------
+print("Counting 1 to 5:")
+count = 1
+while count <= 5:
+    print(count)
+    count = count + 1
+
+print()
+
+# ------------------------------------------------------------------
+# for loop with break
+# ------------------------------------------------------------------
+print("Stop when we find Rahul:")
+for name in students:
+    if name == "Rahul":
+        print("Found Rahul, stopping")
+        break
+    print(name)
+
+print()
+
+# ------------------------------------------------------------------
+# for loop with continue
+# ------------------------------------------------------------------
+print("Print only even numbers from 1 to 10:")
+for num in range(1, 11):
+    if num % 2 != 0:
+        continue
+    print(num)
+
+print()
+
+# ------------------------------------------------------------------
+# nested loop
+# ------------------------------------------------------------------
+print("Multiplication table (1 to 3):")
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(i, "x", j, "=", i * j)
+    print()
