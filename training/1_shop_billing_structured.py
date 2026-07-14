@@ -16,16 +16,16 @@ stock = {"rice": 20, "milk": 15}  # dictionary
 is_open = True                    # boolean
 manager = None                    # none
 
-print("int:", quantity)
-print("float:", price)
-print("complex:", signal_value)
-print("list:", cart)
-print("string:", shop_name)
-print("tuple:", location)
-print("set:", categories)
-print("dictionary:", stock)
-print("boolean:", is_open)
-print("none:", manager)
+print(quantity, type(quantity))
+print(price, type(price))
+print(signal_value, type(signal_value))
+print(cart, type(cart))
+print(shop_name, type(shop_name))
+print(location, type(location))
+print(categories, type(categories))
+print(stock, type(stock))
+print(is_open, type(is_open))
+print(manager, type(manager))
 print()
 
 
