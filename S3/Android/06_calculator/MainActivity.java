@@ -1,6 +1,7 @@
 package com.example.calculator;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -8,173 +9,243 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView display;
-    TextView expression;
+    TextView tvExpression, tvDisplay;
 
     double firstNumber = 0;
     String operator = "";
-    boolean startNewNumber = false;
+    boolean newNumber = true;
+    boolean resultShown = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        display = findViewById(R.id.display);
-        expression = findViewById(R.id.expression);
+        tvExpression = findViewById(R.id.tvExpression);
+        tvDisplay = findViewById(R.id.tvDisplay);
 
-        int[] numbers = {
-                R.id.b0, R.id.b1, R.id.b2, R.id.b3, R.id.b4,
-                R.id.b5, R.id.b6, R.id.b7, R.id.b8, R.id.b9
+        // Number buttons
+        int[] numberButtons = {
+                R.id.btn0, R.id.btn1, R.id.btn2,
+                R.id.btn3, R.id.btn4, R.id.btn5,
+                R.id.btn6, R.id.btn7, R.id.btn8,
+                R.id.btn9
         };
 
-        for (int id : numbers) {
-
-            Button button = findViewById(id);
-
-            button.setOnClickListener(v -> {
-
-                String number = button.getText().toString();
-
-                if (startNewNumber) {
-                    display.setText(number);
-                    startNewNumber = false;
-                } else {
-
-                    if (display.getText().toString().equals("0")) {
-                        display.setText(number);
-                    } else {
-                        display.append(number);
-                    }
-                }
-            });
+        for (int id : numberButtons) {
+            findViewById(id).setOnClickListener(this::numberClicked);
         }
 
-        findViewById(R.id.dot).setOnClickListener(v -> {
+        // Operators
+        findViewById(R.id.btnAdd).setOnClickListener(v -> operatorClicked("+"));
+        findViewById(R.id.btnSubtract).setOnClickListener(v -> operatorClicked("-"));
+        findViewById(R.id.btnMultiply).setOnClickListener(v -> operatorClicked("×"));
+        findViewById(R.id.btnDivide).setOnClickListener(v -> operatorClicked("÷"));
 
-            if (startNewNumber) {
-                display.setText("0.");
-                startNewNumber = false;
-            } else if (!display.getText().toString().contains(".")) {
-                display.append(".");
+        // Equal
+        findViewById(R.id.btnEqual).setOnClickListener(v -> equalClicked());
+
+        // Decimal
+        findViewById(R.id.btnDot).setOnClickListener(v -> decimalClicked());
+
+        // AC
+        findViewById(R.id.btnAC).setOnClickListener(v -> clear());
+
+        // +/-
+        findViewById(R.id.btnSign).setOnClickListener(v -> signClicked());
+
+        // %
+        findViewById(R.id.btnPercent).setOnClickListener(v -> percentClicked());
+    }
+
+    // Number button
+    void numberClicked(View view) {
+
+        Button button = (Button) view;
+        String number = button.getText().toString();
+
+        if (newNumber || resultShown) {
+
+            tvDisplay.setText(number);
+
+            if (resultShown) {
+                tvExpression.setText("");
+                firstNumber = 0;
+                operator = "";
+                resultShown = false;
             }
-        });
 
-        findViewById(R.id.add).setOnClickListener(v -> operatorPressed("+"));
-        findViewById(R.id.sub).setOnClickListener(v -> operatorPressed("-"));
-        findViewById(R.id.mul).setOnClickListener(v -> operatorPressed("×"));
-        findViewById(R.id.div).setOnClickListener(v -> operatorPressed("÷"));
+            newNumber = false;
 
-        findViewById(R.id.equal).setOnClickListener(v -> calculate());
+        } else {
 
-        findViewById(R.id.clear).setOnClickListener(v -> {
-
-            display.setText("0");
-            expression.setText("");
-
-            firstNumber = 0;
-            operator = "";
-            startNewNumber = false;
-        });
-
-        findViewById(R.id.backspace).setOnClickListener(v -> {
-
-            if (startNewNumber) {
-                return;
-            }
-
-            String value = display.getText().toString();
-
-            if (value.length() > 1) {
-                display.setText(value.substring(0, value.length() - 1));
+            if (tvDisplay.getText().toString().equals("0")) {
+                tvDisplay.setText(number);
             } else {
-                display.setText("0");
+                tvDisplay.append(number);
             }
-        });
-
-        findViewById(R.id.percent).setOnClickListener(v -> {
-
-            double number =
-                    Double.parseDouble(display.getText().toString());
-
-            number = number / 100;
-
-            display.setText(format(number));
-        });
+        }
     }
 
-    void operatorPressed(String op) {
+    // Operator button
+    void operatorClicked(String op) {
 
-        if (!operator.equals("") && !startNewNumber) {
+        double currentNumber =
+                Double.parseDouble(tvDisplay.getText().toString());
+
+        if (!operator.isEmpty() && !newNumber) {
             calculate();
+            currentNumber =
+                    Double.parseDouble(tvDisplay.getText().toString());
         }
 
-        firstNumber =
-                Double.parseDouble(display.getText().toString());
-
+        firstNumber = currentNumber;
         operator = op;
+        newNumber = true;
+        resultShown = false;
 
-        expression.setText(format(firstNumber) + " " + op);
-
-        startNewNumber = true;
+        // SHOW OPERATOR ON SCREEN
+        tvExpression.setText(
+                formatNumber(firstNumber) + " " + operator
+        );
     }
 
-    void calculate() {
+    // Equal button
+    void equalClicked() {
 
-        if (operator.equals("")) {
+        if (operator.isEmpty()) {
             return;
         }
 
         double secondNumber =
-                Double.parseDouble(display.getText().toString());
+                Double.parseDouble(tvDisplay.getText().toString());
 
-        double result;
+        String expression =
+                formatNumber(firstNumber)
+                        + " " + operator + " "
+                        + formatNumber(secondNumber);
 
-        switch (operator) {
+        double result = calculateResult(firstNumber, secondNumber);
 
-            case "+":
-                result = firstNumber + secondNumber;
-                break;
-
-            case "-":
-                result = firstNumber - secondNumber;
-                break;
-
-            case "×":
-                result = firstNumber * secondNumber;
-                break;
-
-            case "÷":
-
-                if (secondNumber == 0) {
-                    display.setText("Error");
-                    expression.setText("");
-                    operator = "";
-                    startNewNumber = true;
-                    return;
-                }
-
-                result = firstNumber / secondNumber;
-                break;
-
-            default:
-                return;
+        if (Double.isNaN(result)) {
+            tvExpression.setText(expression);
+            tvDisplay.setText("Error");
+            operator = "";
+            newNumber = true;
+            resultShown = true;
+            return;
         }
 
-        expression.setText(
-                format(firstNumber) + " "
-                        + operator + " "
-                        + format(secondNumber)
-        );
-
-        display.setText(format(result));
+        tvExpression.setText(expression);
+        tvDisplay.setText(formatNumber(result));
 
         firstNumber = result;
         operator = "";
-        startNewNumber = true;
+        newNumber = true;
+        resultShown = true;
     }
 
-    String format(double number) {
+    // Perform calculation
+    double calculateResult(double number1, double number2) {
+
+        if (operator.equals("+")) {
+            return number1 + number2;
+        }
+
+        if (operator.equals("-")) {
+            return number1 - number2;
+        }
+
+        if (operator.equals("×")) {
+            return number1 * number2;
+        }
+
+        if (operator.equals("÷")) {
+
+            if (number2 == 0) {
+                return Double.NaN;
+            }
+
+            return number1 / number2;
+        }
+
+        return number2;
+    }
+
+    // Used for consecutive operations
+    void calculate() {
+
+        double secondNumber =
+                Double.parseDouble(tvDisplay.getText().toString());
+
+        double result = calculateResult(firstNumber, secondNumber);
+
+        if (Double.isNaN(result)) {
+            tvDisplay.setText("Error");
+            operator = "";
+            newNumber = true;
+            return;
+        }
+
+        tvDisplay.setText(formatNumber(result));
+        firstNumber = result;
+    }
+
+    // Decimal button
+    void decimalClicked() {
+
+        if (newNumber || resultShown) {
+
+            tvDisplay.setText("0.");
+            newNumber = false;
+            resultShown = false;
+
+        } else if (!tvDisplay.getText().toString().contains(".")) {
+
+            tvDisplay.append(".");
+        }
+    }
+
+    // +/-
+    void signClicked() {
+
+        if (tvDisplay.getText().toString().equals("0")) {
+            return;
+        }
+
+        double number =
+                Double.parseDouble(tvDisplay.getText().toString());
+
+        number = -number;
+
+        tvDisplay.setText(formatNumber(number));
+    }
+
+    // Percentage
+    void percentClicked() {
+
+        double number =
+                Double.parseDouble(tvDisplay.getText().toString());
+
+        number = number / 100;
+
+        tvDisplay.setText(formatNumber(number));
+    }
+
+    // Clear
+    void clear() {
+
+        tvDisplay.setText("0");
+        tvExpression.setText("");
+
+        firstNumber = 0;
+        operator = "";
+        newNumber = true;
+        resultShown = false;
+    }
+
+    // Avoid showing 5.0 instead of 5
+    String formatNumber(double number) {
 
         if (number == (long) number) {
             return String.valueOf((long) number);
