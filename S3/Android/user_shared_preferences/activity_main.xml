@@ -2,7 +2,6 @@
 
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -19,7 +18,6 @@
         android:paddingTop="28dp"
         android:paddingBottom="32dp">
 
-        <!-- Registration Page Title -->
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
@@ -31,21 +29,18 @@
             android:textStyle="bold"
             android:layout_marginBottom="28dp" />
 
-        <!-- Name -->
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Employee Name"
             android:inputType="textCapWords"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:singleLine="true"
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
             android:textSize="18sp"
             android:layout_marginBottom="14dp" />
 
-        <!-- Email -->
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
@@ -58,33 +53,6 @@
             android:textSize="18sp"
             android:layout_marginBottom="14dp" />
 
-        <!-- Password -->
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:singleLine="true"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray"
-            android:textSize="18sp"
-            android:layout_marginBottom="14dp" />
-
-        <!-- Confirm Password -->
-        <EditText
-            android:id="@+id/editTextConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:singleLine="true"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray"
-            android:textSize="18sp"
-            android:layout_marginBottom="14dp" />
-
-        <!-- Phone -->
         <EditText
             android:id="@+id/editTextPhone"
             android:layout_width="match_parent"
@@ -95,74 +63,20 @@
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
             android:textSize="18sp"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="14dp" />
 
-        <!-- Gender Label -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gender"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="6dp" />
-
-        <!-- Gender Options -->
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
-
-            <RadioButton
-                android:id="@+id/radioButton1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Female"
-                android:textSize="17sp" />
-
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Male"
-                android:textSize="17sp" />
-
-        </RadioGroup>
-
-        <!-- Date of Birth -->
         <EditText
-            android:id="@+id/editTextDOB"
+            android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Date of Birth"
-            android:inputType="date" />
-
-        <!-- Address -->
-        <EditText
-            android:id="@+id/editTextAddress"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:gravity="top|start"
-            android:hint="Address"
-            android:inputType="textMultiLine"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:singleLine="true"
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
             android:textSize="18sp"
-            android:layout_marginBottom="18dp" />
-
-        <!-- Terms and Conditions -->
-        <CheckBox
-            android:id="@+id/checkBoxTerms"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="I agree to the Terms and Conditions"
-            android:textSize="16sp"
             android:layout_marginBottom="20dp" />
 
-        <!-- Register Button -->
         <Button
             android:id="@+id/registerButton"
             android:layout_width="match_parent"
