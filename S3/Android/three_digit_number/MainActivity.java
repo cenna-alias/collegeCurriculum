@@ -20,36 +20,36 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-       etNumber = findViewById(R.id.etNumber);
-       btnCalculate = findViewById(R.id.btnCalculate);
+        etNumber = findViewById(R.id.etNumber);
+        btnCalculate = findViewById(R.id.btnCalculate);
 
-       btnCalculate.setOnClickListener(view -> {
+        btnCalculate.setOnClickListener(view -> {
 
-           String numberText = etNumber.getText().toString();
+            String numberText = etNumber.getText().toString();
 
-           if (numberText.isEmpty()) {
+            if (numberText.isEmpty()) {
+                Toast.makeText(this, "Please enter a number", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-               Toast.makeText(this, "Please enter a number", Toast.LENGTH_SHORT).show();
-               return;
-           }
-           int number = Integer.parseInt(numberText);
-           if (number < 100 || number > 999) {
-               Toast.makeText(this, "Please enter a three digit number", Toast.LENGTH_SHORT).show();
-               return;
-           }
+            int number = Integer.parseInt(numberText);
 
-           int digit1 = number / 100;
-           int digit2 = (number / 10) % 10;
-           int digit3 = number % 10;
+            if (number < 100 || number > 999) {
+                Toast.makeText(this, "Please enter a three digit number", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-           int sum = digit1 + digit2 + digit3;
-           int reverse = digit3 * 100 + digit2 * 10 + digit1;
-           Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            int digit1 = number / 100;
+            int digit2 = (number / 10) % 10;
+            int digit3 = number % 10;
 
-           intent.putExtra("sum", sum);
-           intent.putExtra("reverse", reverse);
+            int reverse = digit3 * 100 + digit2 * 10 + digit1;
 
-           startActivity(intent);
-       });
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+
+            intent.putExtra("reverse", reverse);
+
+            startActivity(intent);
+        });
     }
 }
